@@ -7,6 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.tm.app.Messages;
@@ -51,5 +52,12 @@ public class TestMessages {
 	public void testExpectedException()
 	{
 		int a=4/0;
+	}
+	
+	@Ignore
+	@Test
+	public void getIgnoredMessages()
+	{
+		System.out.println("There are no ignored messages");
 	}
 }

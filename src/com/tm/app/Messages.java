@@ -24,4 +24,10 @@ public class Messages {
 		return new Object();
 	}
 	
+	public static Exception mustThrowException() throws Exception 
+	{
+		throw new Exception();
+	}
+	
+	
 }
