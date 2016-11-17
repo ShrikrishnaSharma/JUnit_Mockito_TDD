@@ -22,7 +22,7 @@ public class TestMiscellaneous {
 	@Test
 	public void makeItFail()
 	{
-	   //fail("you should not be here");
+	   fail("you should not be here");
 	}
 	
 	
