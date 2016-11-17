@@ -12,8 +12,11 @@ import org.junit.Test;
 
 import com.tm.app.Messages;
 
-public class TestMessages {
 
+//Sorts by method name,runs test in particular order
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class TestMessages {
+	
 	@Test
 	public void testMyName()
 	{
