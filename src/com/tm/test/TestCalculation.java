@@ -1,5 +1,6 @@
 package com.tm.test;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
@@ -32,7 +33,8 @@ public class TestCalculation {
 		
 		System.out.println("in test max");
 		assertEquals(4,Calculation.findMax(new int[]{4,2,-1,-7}));
-		assertEquals(11,Calculation.findMax(new int[]{11,4,9,2}));
+		assertTrue("failure - should be true", false);
+		assertEquals("value is not correct",9,Calculation.findMax(new int[]{11,4,9,2}));
 		
 	}
 	

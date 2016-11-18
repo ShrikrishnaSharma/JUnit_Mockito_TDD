@@ -2,6 +2,7 @@ package com.tm.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -17,6 +18,10 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.reset;
+import static org.mockito.Mockito.timeout;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestMathApplication {
@@ -31,8 +36,12 @@ public class TestMathApplication {
 	@Test(expected=RuntimeException.class)
 	public void testAdd()
 	{
+		
+		
 		when(calculatorService.add(50,30)).thenReturn(80);
+		
 		assertEquals(mathApplication.add(50,30),80);
+		
 		assertEquals(mathApplication.add(50,30),80);
 		assertEquals(mathApplication.add(50,30),80);
 		
@@ -43,6 +52,18 @@ public class TestMathApplication {
 		
 		doThrow(new RuntimeException("add operation not implemented with this arguments")).when(calculatorService).add(50,30);
 		assertEquals(mathApplication.add(50,30),80);
+		
+		/*InOrder inOrder=inOrder(calculatorService);
+
+		inOrder.verify(calculatorService).subtract(20.0,10.0);
+		inOrder.verify(calculatorService).add(50,30);*/
+		
+		reset(calculatorService);
+		
+		
+		assertEquals(mathApplication.add(50,30),80);
+		
+		
 		
 	}
 
