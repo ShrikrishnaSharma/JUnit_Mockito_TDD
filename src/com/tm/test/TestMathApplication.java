@@ -33,7 +33,7 @@ public class TestMathApplication {
 	@Mock
 	CalculatorService calculatorService;
 	
-	@Test(expected=RuntimeException.class)
+	@Test//(expected=RuntimeException.class)
 	public void testAdd()
 	{
 		
@@ -50,15 +50,20 @@ public class TestMathApplication {
 		//verify(calculatorService,atLeastOnce()).subtract(50.0,30.0);
 		verify(calculatorService,atMost(3)).add(50,30);
 		
-		doThrow(new RuntimeException("add operation not implemented with this arguments")).when(calculatorService).add(50,30);
+		when(calculatorService.add(60, 30)).thenThrow(new RuntimeException());
+		
+		//doThrow(new RuntimeException("add operation not implemented with this arguments")).when(calculatorService).add(60,30);
 		assertEquals(mathApplication.add(50,30),80);
+		
+		
+		//assertEquals(mathApplication.add(60,30),80);
 		
 		/*InOrder inOrder=inOrder(calculatorService);
 
 		inOrder.verify(calculatorService).subtract(20.0,10.0);
 		inOrder.verify(calculatorService).add(50,30);*/
 		
-		reset(calculatorService);
+		//reset(calculatorService);
 		
 		
 		assertEquals(mathApplication.add(50,30),80);
